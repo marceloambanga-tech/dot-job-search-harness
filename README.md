@@ -53,6 +53,8 @@ A demonstração usa empresa e documentos fictícios em uma pasta temporária. M
 
 Este repositório contém o pacote e o procedimento de implantação. **Cloná-lo não cria um Dot, conecta contas, agenda tarefas ou instala um servidor MCP.** A coordenação nativa e as integrações precisam existir na conta utilizada.
 
+**Validação atual:** 17 testes passaram localmente, em um clone do GitHub e no computador do Dot. O agendamento privado já referencia a versão fixada, as skills e o harness. A retenção entre rodadas futuras continua pendente; os detalhes e limites estão no [registro de validação](docs/validacao.md).
+
 ## Para explorar o case
 
 - [Desenho e decisões de arquitetura](ARQUITETURA.md)
