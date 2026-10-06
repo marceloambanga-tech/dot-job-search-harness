@@ -29,7 +29,7 @@ O primeiro recorte inclui liderança técnica, engenharia sênior, IA e desenvol
 
 Há código executável para estado, orçamento, deduplicação básica e controle de tentativa; cinco skills com contratos; exemplos sintéticos; testes automatizados e instruções de implantação. O desenho separa descoberta, avaliação, preparação, aprovação, execução e acompanhamento.
 
-No piloto privado, a planilha e o agendamento nativo foram configurados, integrações responderam e o Dot reportou execução de agentes com contextos próprios. Isso é evidência de viabilidade naquele ambiente, não uma garantia de acesso equivalente em toda conta. Os registros públicos de validação estão em [validacao.md](validacao.md).
+No piloto privado, a planilha e o agendamento nativo foram configurados, integrações responderam e uma rodada de validação com dez vagas em cache foi concluída por pesquisador, acompanhamento e avaliador nativos, com resultados registrados e relidos. Os 17 testes também passaram na nuvem; o mesmo agendamento foi atualizado para carregar o pacote fixado. Isso é evidência de viabilidade naquele ambiente, não uma garantia de acesso equivalente em toda conta. Os registros públicos de validação estão em [validacao.md](validacao.md).
 
 ## Como medir resultado sem inflar o case
 
