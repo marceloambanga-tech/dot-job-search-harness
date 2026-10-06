@@ -7,32 +7,23 @@ O objetivo é encontrar vagas compatíveis com fatos profissionais verificáveis
 ## Arquitetura
 
 ```mermaid
-flowchart TD
-    U["Candidato"] <--> D["Dot coordenador"]
-    T["Agendamento nativo · a cada 2 horas"] --> D
-    D <--> H["Harness · SQLite privado<br/>rodadas, orçamento, aprovação e tentativas"]
-    D -->|"orçamento reservado"| P["Subagente pesquisador"]
-    D --> M["Subagente de acompanhamento"]
-    P --> A["Subagente avaliador"]
-    A -->|"aderência + evidências"| D
-    M -->|"etapas propostas + evidências"| D
-    D -->|"vaga selecionada"| C["Subagente preparador"]
-    C -->|"documentos + respostas + versão"| D
-    D --> R["Pacote para revisão"]
-    R --> U
-    U -->|"aprovação específica"| G["Gate do harness + confirmação nativa"]
-    G -->|"persistir tentativa antes de agir"| W["Coordenador grava e confere<br/>Envio em verificação no Sheets"]
-    W --> E["Coordenador executa uma vez<br/>no navegador autorizado"]
-    E -->|"recibo ou dúvida"| D
-    P <--> X["MCPs · Exa / Parallel / Firecrawl"]
-    M <--> GM["Gmail · mensagens de processos rastreados"]
-    D <--> S["Google Sheets / Drive<br/>um único escritor"]
-    U <--> S
-    K["Skills · procedimentos e contratos"] -.-> D
-    K -.-> P
-    K -.-> A
-    K -.-> C
-    K -.-> M
+flowchart TB
+    U["Candidato"] <-->|"revisão e decisões"| D["Dot coordenador"]
+    T["Agenda nativa · a cada 2 horas"] --> D
+    D <--> H["Harness · Python + SQLite<br/>estado, orçamento e autorizações"]
+    D <--> S["Google Sheets / Drive<br/>controle e histórico · um escritor"]
+    H <-->|"delegação e resultados"| AG
+    subgraph AG["Subagentes sob demanda"]
+        P["Pesquisa"]
+        A["Avaliação"]
+        C["Preparação"]
+        M["Acompanhamento"]
+    end
+    K["5 skills<br/>procedimentos e contratos"] -.-> AG
+    AG <--> MCP["MCPs existentes<br/>Exa · Parallel · Firecrawl · Gmail"]
+    U -->|"aprovação do pacote exato"| H
+    H -->|"confirmar autorização e persistir tentativa"| E["Execução pelo coordenador<br/>conferir Sheets → enviar uma vez → verificar recibo"]
+    E --> S
 ```
 
 **Um Dot é o ponto de contato e de agendamento.** Especialistas são delegados sob demanda: pesquisador e acompanhamento podem trabalhar em paralelo; o avaliador recebe vagas descobertas; o preparador só atua após seleção. Não é necessário manter quatro agentes ativos continuamente.
