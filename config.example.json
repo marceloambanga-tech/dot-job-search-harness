@@ -1,0 +1,26 @@
+{
+  "spreadsheet_id": "REPLACE_PRIVATELY",
+  "existing_schedule_id": "REPLACE_PRIVATELY",
+  "timezone": "America/Sao_Paulo",
+  "frequency_hours": 2,
+  "state_path": "/ABSOLUTE/PRIVATE/PATH/state.sqlite3",
+  "candidate_profile_source": "private_spreadsheet",
+  "target_roles": [
+    "Tech Lead",
+    "AI Tech Lead",
+    "Staff Software Engineer",
+    "Senior Software Engineer",
+    "iOS",
+    "Flutter"
+  ],
+  "remote_only": true,
+  "candidate_country": "Brazil",
+  "pending_preferences": [
+    "english_level",
+    "contract_type",
+    "salary_expectation"
+  ],
+  "notification_policy": "high_fit_verified_open_jobs_or_actionable_process_updates_or_persistent_failures",
+  "application_policy": "specific_human_approval_for_exact_package",
+  "local_computer_required": false
+}

@@ -1,0 +1,42 @@
+{
+  "name": "dot-job-search-harness",
+  "version": "0.1.0",
+  "coordinator": "Dot Vagas",
+  "limits_per_run": {
+    "search_queries": 6,
+    "new_full_descriptions": 10
+  },
+  "agent_profiles": [
+    {
+      "name": "pesquisador",
+      "skill": "skills/pesquisar-vagas/SKILL.md",
+      "requested_tool_scope": "public_search_and_read_only",
+      "returns": "vacancies_and_evidence"
+    },
+    {
+      "name": "avaliador",
+      "skill": "skills/avaliar-vagas/SKILL.md",
+      "requested_tool_scope": "analysis_only",
+      "returns": "fit_assessments"
+    },
+    {
+      "name": "preparador",
+      "skill": "skills/preparar-candidatura/SKILL.md",
+      "requested_tool_scope": "drafts_only",
+      "returns": "review_package"
+    },
+    {
+      "name": "acompanhamento",
+      "skill": "skills/acompanhar-candidaturas/SKILL.md",
+      "requested_tool_scope": "tracked_application_email_read_only",
+      "returns": "proposed_status_updates"
+    }
+  ],
+  "coordinator_skill": "skills/coordenar-vagas/SKILL.md",
+  "runtime_adapter": "native_dot_background_agents_invoked_by_coordinator",
+  "tool_scope_enforcement": "instructional_unless_verified_in_target_runtime",
+  "skill_loading": "explicit_read_and_pass_to_delegate; no_automatic_discovery_assumed",
+  "state_storage": "private_cloud_directory; restart_retention_requires_validation",
+  "configuration": "config.local.json (private; not included)",
+  "deployment_status": "see docs/validacao.md; manifest_is_not_an_installer"
+}
